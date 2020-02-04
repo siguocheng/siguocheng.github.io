@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/unslider.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/jquery.SuperSlide2.js"></script>
+		<script src="js/jquery-migrate-1.2.1.js"></script>
+		<script src="js/navfix.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<link href="css/owl/owl.carousel.css" rel="stylesheet">
+		<link href="css/owl/owl.theme.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="shortcut icon" href="img/zhele.ico" type="image/x-icon">
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<!-- 引入组件库 -->
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+		<title>产品中心</title>
+		<style type="text/css">
+			.product {
+				float: left;
+				width: 358px;
+				height: 250px;
+				margin: 10px;
+				border: 1px solid #dddddd;
+				padding: 10px;
+			}
+		</style>
+		
+		<script type="text/javascript" language="javascript">
+			$(document).ready(function(e) {
+				$("#menu li").on('mouseover', function() {
+					// $(this).css("border-bottom", "2px solid #5A5A5A");
+					$(this).css("background-color", "#156cfd");
+					$(this).find("a").attr("class", "ahover");
+				}).mouseout(function() {
+					// $(this).css("border-bottom", "2px solid rgb(0,0,0,0)");
+					$(this).css("background-color", "white");
+					$(this).find("a").attr("class", "hover");
+				});
+				
+				$("#txtSearch").focus(function(){
+					$("#txtSearch").val('');
+				}).blur(function() {
+			
+					if($("#txtSearch").val() == '') {
+						$("#txtSearch").val('请输入产品关键字');
+					}
+					
+				})
+				$('#menu1').navfix(0,999);
+			});
+		</script>
+	</head>
+	<body>
+		<!-- 菜单 -->
+		<div id="menu1" style="margin:0 auto;width: 100%;background-color: white;position:relative; z-index:99; ">
+			<div  style="margin:0 auto;width: 1400px;">
+				<div style="float: left;margin-top: 10px;margin-left: 30px;">
+					<a href=""><img src="img/logo/logo2.jpg" width="200px" height="55px" />
+					</a>
+				</div>
+				<div style="float: left;margin-left: 20px;margin-top:8px">
+					<span style="line-height: 70px;font-size: 30px;color:black;font-family:微软雅黑;">浙江乐志电子有限公司</span>
+				</div>
+				<div id="menu" class="cssmenu" style="float:right">
+					<ul>
+						<li><a href="index.html" class="hover">主页</a></li>
+						<li><a href="productList.html" class="hover">产品中心</a></li>
+						<li><a href="about.html" class="hover">企业介绍</a></li>
+						<li><a href="contact.html" class="hover">联系我们</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div>
+			<img src="img/01.jpg" width="100%" height="300px"/>
+		</div>
+		<!-- <div id="div1" style="margin:0 auto;width:100%;background-color: rgb(244, 244, 244);height: 40px; 
+		position: relative;overflow: auto;text-align: center;line-height: 40px;font-size: 16px;">
+			<div style="margin:0 auto;width:1200px;">
+				<input type="text"  />
+			</div>
+		</div> -->
+		<div id="productList">
+			<div id="div1" style="margin-top: 50px;  font-size:30px;font-family:微软雅黑;color:#156cfd;height: 30px;   text-align: center;">
+				<strong>产品中心</strong>
+			</div>
+			<div style="margin:0 auto;width: 1200px;background-color: #cccccc;height: 2px;width: 70px;">
+			</div>
+			<div style="margin-top: 10px;  font-size:14px;font-family:微软雅黑;color:rgb(67, 67, 67);height: 30px;   text-align: center;">
+				Product Center
+			</div>
+			<div style="margin: 0 auto;width: 1200px;margin-bottom: 60px;">
+				<div>
+					<input id="btnSearch" type="button" class="searchbox_btn" value="搜索"/>
+				</div>
+				<div style="float: right;">
+					<input id="txtSearch" type="text" value="请输入产品关键字" style="text-align: left;color: #666; padding-left: 5px;padding-right: 5px;background-color: #ffffff;width:300px;font-size: 12px;font-family:Microsoft YaHei;line-height: 36px;border:#156cfd 2px solid;"/>
+				</div>
+				
+			</div>
+			<div id="product" style="margin:0 auto;width: 1200px;height:1050px">
+				<div class="product">
+					<a href="product_detail.html">
+						<img id="img1" src="img/pr001.jpeg" width="350px" height="250px" />
+					</a>
+				</div>
+				<div class="product">
+					<a href="product_detail.html">
+						<img src="img/pr001.jpeg" width="350px" height="250px" />
+					</a>
+				</div>
+				<div class="product">
+					<a href="product_detail.html">
+						<img src="img/pr001.jpeg" width="350px" height="250px" />
+					</a>
+				</div>
+				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
+				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
+				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
+				<div class="product">
+					<a href="product_detail.html">
+						<img src="img/pr001.jpeg" width="350px" height="250px" />
+					</a>
+				</div>
+				<div class="product">
+					<a href="product_detail.html">
+						<img src="img/pr001.jpeg" width="350px" height="250px" />
+					</a>
+				</div>
+				<div class="product">
+					<a href="product_detail.html">
+						<img src="img/pr001.jpeg" width="350px" height="250px" />
+					</a>
+				</div>
+				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
+				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
+				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
+				<div class="product">
+					<a href="">
+						<img src="img/pr001.jpeg" width="350px" height="250px" />
+					</a>
+				</div>
+				<div class="product">
+					<a href="product_detail.html">
+						<img src="img/pr001.jpeg" width="350px" height="250px" />
+					</a>
+				</div>
+				<div class="product">
+					<a href="product_detail.html">
+						<img src="img/pr001.jpeg" width="350px" height="250px" />
+					</a>
+				</div>
+				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
+				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
+				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
+			</div>
+			<div id="page" style="margin:0 auto;margin-bottom: 50px; width:1200px;text-align: center;">
+				<el-pagination
+				  background
+				  layout="prev, pager, next"
+				  :current-page.sync="page" :total="total" :page-size="pageSize" @current-change="current_change">
+				</el-pagination>
+			</div>
+		</div>
+		<div style="width: 100%;background-color: #1A1A1A;">
+			<div id="contactPic" style="margin: 0 auto; width: 1200px;font-family: 微软雅黑;height: 60px;">
+				<!-- <div class="pic"><img src="img/pic/phone.png" width="130px" height="130px"/></div>
+				<div class="pic"><img src="img/pic/address.png" width="130px" height="130px"/></div>
+				<div class="pic"><img src="img/pic/mail.png" width="130px" height="130px"/></div>
+				<div class="pic"><img src="img/pic/fax.png" width="130px" height="130px"/></div> -->
+				<div class="content">电话：王建丽 13738068166</div>
+				<div class="content">地址：杭州市余杭区瓶窑镇长命村富豪路7号1号楼3单元4-1室</div>
+				<div class="content">邮箱：13738068166@163.com</div>
+				<div class="content">传真：0571-87425558</div>
+			</div>
+			<div style="margin: 0 auto;width: 1200px;font-size: 15px;text-align: center;color: #FFFFFF;line-height: 50px;">
+				Copyright © 2019-2020,www.xxxxxx.com,All rights reserved  沪ICP备XXXXXX号
+			</div>
+		</div>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: '#productList',
+				data: {
+					todos: [
+					      { text: '汽车线束' },
+					      { text: '家电线束' },
+					      { text: '医疗线束' }
+					    ],
+						page:2,
+						total:20,
+						pageSize:10,
+				},
+				methods: {
+					current_change(){
+						axios.post("http://localhost:9066/iot/getToken", 
+								{
+						          username: "water",
+						          password: "123456"
+						        }).then((response) => {
+						          console.log("返回的值"+response.data)
+						        }).catch((response) => {
+						          console.log("错误"+response)
+						        });
+					}
+				}
+			});
+		</script>
+	</body>
+	
+</html>

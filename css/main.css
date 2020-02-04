@@ -1,0 +1,150 @@
+body {
+	font: 12px/140% Arial, "宋体", Helvetica, sans-serif, Verdana;
+	color: #5a5a5a;
+	margin: 0;
+	background: #FFF;
+}
+
+html,
+body {
+	-webkit-text-size-adjust: none;
+}
+
+ol,
+ul,
+li {
+	list-style-type: none;
+}
+
+div,
+p,
+img,
+ul,
+ol,
+li,
+form,
+input,
+label,
+span,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	display: list-item;
+	text-align: -webkit-match-parent;
+}
+.container{
+	margin: 0 auto;
+	width: 1200px;
+}
+.cssmenu>ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	float: right;
+	font-weight: normal;
+}
+
+.cssmenu {
+	margin-top: 20px;
+	overflow: hidden;
+}
+
+.cssmenu>ul>li {
+	float: left;
+	display: block;
+	margin: 0 10px;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 2px solid rgb(0, 0, 0, 0);
+	width: 100px;
+	text-align: center;
+	border-radius: 30px;
+}
+
+.cssmenu>ul>li>a.ahover {
+	color: white;
+	text-align: center;
+	font-family: arial;
+	font-size: 14px;
+	font-weight: normal;
+	font-style: normal;
+	font-family: Microsoft YaHei;
+	font-size: 15px;
+	text-decoration: none;
+}
+
+.cssmenu>ul>li>a.hover {
+	font-style: normal;
+	font-family: Microsoft YaHei;
+	font-size: 15px;
+	color: #019966;
+	text-decoration: none;
+
+}
+.title{
+	margin-top: 20px;  font-size:30px;font-family:微软雅黑;color:#516dff;height: 30px;   text-align: center;
+}
+a {
+	text-decoration: none;
+}
+
+strong {
+	font-weight: bold;
+}
+
+.searchbox_btn {
+	background: #156cfd;
+	font-family: Microsoft YaHei;
+	font-weight: normal;
+	border: #fff 0px solid;
+	float: right;
+	width: 50px;
+	height: 40px;
+	line-height: 40px;
+	cursor: pointer;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	position: relative;
+}
+
+#advantage .content {
+	background-color: #0037C0;
+	width: 285px;
+	height: 186px;
+	float: left;
+	border-radius: 20px;
+	margin: 10px 10px 10px 0px;
+	text-align: center;
+	line-height: 186px;
+	color: #FFFFFF;
+	font-size: 18px;
+	font-family: 微软雅黑;
+}
+#contactPic .pic{
+	float: left;
+	width: 300px;
+	text-align: center;
+	margin-top: 20px;
+}
+#contactPic .content{
+	font-size: 17px;
+	text-align: center;
+	width: 300px;
+	height: 50px;
+	line-height: 22px;
+	float: left;
+	margin-top: 20px;
+	color: #FFFFFF;
+}
