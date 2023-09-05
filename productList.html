@@ -10,7 +10,6 @@
 		<script src="js/jquery-migrate-1.2.1.js"></script>
 		<script src="js/navfix.js"></script>
 		<script src="js/vue.js"></script>
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<link href="css/owl/owl.carousel.css" rel="stylesheet">
 		<link href="css/owl/owl.theme.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/main.css">
@@ -19,15 +18,21 @@
 		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 		<!-- 引入组件库 -->
 		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
-		<title>产品中心</title>
+		<meta name="description" content="浙江乐只电子科技有限公司官网">
+		<meta name="keywords" content="乐志,线束,注塑件">
+		<title>产品中心-浙江乐志电子科技有限公司</title>
 		<style type="text/css">
 			.product {
 				float: left;
-				width: 358px;
+				width: 250px;
 				height: 250px;
 				margin: 10px;
 				border: 1px solid #dddddd;
 				padding: 10px;
+			}
+			.product:hover {
+				box-shadow: 0 15px 30px rgba(0,0,0,.1);
+				transform: translate3d(0,-2px,0);
 			}
 		</style>
 		
@@ -43,6 +48,16 @@
 					$(this).find("a").attr("class", "hover");
 				});
 				
+				// $("#productType li").on('mouseover', function() {
+				// 	// $(this).css("border-bottom", "2px solid #5A5A5A");
+				// 	$(this).css("background-color", "#156cfd");
+				// 	$(this).find("a").attr("class", "ahover");
+				// }).mouseout(function() {
+				// 	// $(this).css("border-bottom", "2px solid rgb(0,0,0,0)");
+				// 	$(this).css("background-color", "white");
+				// 	$(this).find("a").attr("class", "hover");
+				// });
+				
 				$("#txtSearch").focus(function(){
 					$("#txtSearch").val('');
 				}).blur(function() {
@@ -53,160 +68,413 @@
 					
 				})
 				$('#menu1').navfix(0,999);
+				
+				// $("#product img").each(function() {
+				
+				// 	$(this).on('mouseover', function() {
+				// 		$(this).animate({
+				// 			width: "360px",
+				// 			height: "260px"
+				// 		});
+				// 		// $(this).animate({height:"270px"});
+				// 	}).mouseout(function() {
+				// 		$(this).animate({
+				// 			width: "350px",
+				// 			height: "250px"
+				// 		});
+				// 		// $(this).animate({height:"250px"});
+				// 	});
+				// });
+				
 			});
 		</script>
 	</head>
 	<body>
-		<!-- 菜单 -->
-		<div id="menu1" style="margin:0 auto;width: 100%;background-color: white;position:relative; z-index:99; ">
-			<div  style="margin:0 auto;width: 1200px;">
-				<div style="float: left;margin-top: 10px;margin-left: 30px;">
-					<a href=""><img src="img/logo/logo2.jpg" width="200px" height="55px" />
-					</a>
+		<div id="projectCenter">
+			<!-- 菜单 -->
+			<div id="menu1" style="margin:0 auto;width: 100%;background-color: white;position:relative; z-index:99; height: 110px;">
+				<div  style="margin:0 auto;width: 100%;">
+					<div style="float: left;margin-top: 20px;margin-left: 20px;width: 280px;">
+						<a href="index.html"><img src="img/logo/logo2.jpg" width="250px" height="60px" />
+						</a>
+					</div>
+					<div style="float: left;margin-left: 0px;margin-top:20px;margin-bottom: 8px;margin-right: 130px;">
+						<div style="line-height: 50px;font-size: 32px;color:black;font-family:Arial;"><strong>浙江乐志电子科技有限公司</strong>
+						</div>
+						<div style="font-size: 18px;font-family:Arial;color:black;line-height: 20px;">Zhejiang Lezhi Electronic Technology Co.,Ltd.</div>
+					</div>
+					<div id="menu" class="cssmenu fl">
+						<ul>
+							<li><a href="index.html" class="hover">首页</a></li>
+							<li><a href="productList.html" class="hover">产品中心</a></li>
+							<li><a href="technical.html" class="hover">技术能力</a></li>
+							<li><a href="about.html" class="hover">企业介绍</a></li>
+							<li><a href="contact.html" class="hover">联系我们</a></li>
+						</ul>
+					</div>
+					<div style="height: 100px;font-size: 30px;line-height: 100px;margin-right: 100px;margin-top: 5px;color: #156CFD;" class="fr">
+						137 3806 8166
+					</div>
+					<div style="height: 80px;" class="fr"><img src="img/index/phone.svg" width="40px" height="40px" style="display: block;margin-top: 35px;margin-right: 10px;"/></div>
 				</div>
-				<div style="float: left;margin-left: 20px;margin-top:8px">
-					<span style="line-height: 70px;font-size: 30px;color:black;font-family:微软雅黑;">浙江乐志电子有限公司</span>
-				</div>
-				<div id="menu" class="cssmenu" style="float:right">
+			</div>
+			<div>
+				<img src="img/product.png" width="100%" height="400px"/>
+			</div>
+			
+			<div style="margin:0 auto;width: 1050px;">
+				<div id="productType" class="cssProductType">
 					<ul>
-						<li><a href="index.html" class="hover">主页</a></li>
-						<li><a href="productList.html" class="hover">产品中心</a></li>
-						<li><a href="about.html" class="hover">企业介绍</a></li>
-						<li><a href="contact.html" class="hover">联系我们</a></li>
+						<li><a href="javascript:void(0)" class="hover" @click="productTypeChange('全部',this)">全部</a></li>
+						<li><a href="javascript:void(0)" class="hover" @click="productTypeChange('新能源')">新能源</a></li>
+						<li><a href="javascript:void(0)" class="hover" @click="productTypeChange('电子电器')">电子电器</a></li>
+						<li><a href="javascript:void(0)" class="hover" @click="productTypeChange('电气电工')">电气电工</a></li>
+						<li><a href="javascript:void(0)" class="hover" @click="productTypeChange('工业自动化')">工业自动化</a></li>
+						<li><a href="javascript:void(0)" class="hover" @click="productTypeChange('户外照明')">户外照明</a></li>
+						<li><a href="javascript:void(0)" class="hover" @click="productTypeChange('PCBA用端子')">PCBA用端子</a></li>
+						<li><a href="javascript:void(0)" class="hover" @click="productTypeChange('注塑件')">家用产品注塑件</a></li>
+						<li><a href="javascript:void(0)" class="hover" @click="productTypeChange('锂电池端板')">锂电池端板</a></li>
 					</ul>
 				</div>
 			</div>
-		</div>
-		<div>
-			<img src="img/index/20170330104014152.jpg" width="100%" height="400px"/>
-		</div>
-		<!-- <div id="div1" style="margin:0 auto;width:100%;background-color: rgb(244, 244, 244);height: 40px; 
-		position: relative;overflow: auto;text-align: center;line-height: 40px;font-size: 16px;">
-			<div style="margin:0 auto;width:1200px;">
-				<input type="text"  />
+			
+			<div class="container line" style="width: 100%;">
 			</div>
-		</div> -->
-		<div id="productList">
-			<div id="div1" style="margin-top: 50px;  font-size:30px;font-family:微软雅黑;color:#156cfd;height: 30px;   text-align: center;">
-				<strong>产品中心</strong>
+			<div style="border: #CCCCCC 1px dashed;border-radius: 3px;height: 50px;width: 1300px;margin: 0 auto;margin-top: 25px;">
+				<img src="img/index/position.png" width="25px" height="25px" style="display: block;margin-top: 10px;margin-left: 10px;float: left;"/>
+				<div style="margin-left: 10px;height: 50px;line-height: 50px;font-size: 18px;" class="fl">您的位置:</div>
+				<div style="margin-left: 10px;height: 50px;line-height: 50px;font-size: 18px;" class="fl"><a href="index.html">首页</a></div>
+				<div style="margin-left: 10px;height: 50px;line-height: 50px;font-size: 18px;" class="fl"> -> </div>
+				<div style="margin-left: 10px;height: 50px;line-height: 50px;font-size: 18px;" class="fl">产品中心</div>
 			</div>
-			<div style="margin:0 auto;width: 1200px;background-color: #cccccc;height: 2px;width: 70px;">
-			</div>
-			<div style="margin-top: 10px;  font-size:14px;font-family:微软雅黑;color:rgb(67, 67, 67);height: 30px;   text-align: center;">
-				Product Center
-			</div>
-			<div style="margin: 0 auto;width: 1200px;margin-bottom: 60px;">
-				<div>
-					<input id="btnSearch" type="button" class="searchbox_btn" value="搜索"/>
-				</div>
-				<div style="float: right;">
-					<input id="txtSearch" type="text" value="请输入产品关键字" style="text-align: left;color: #666; padding-left: 5px;padding-right: 5px;background-color: #ffffff;width:300px;font-size: 12px;font-family:Microsoft YaHei;line-height: 36px;border:#156cfd 2px solid;"/>
-				</div>
+			<!-- <div style="margin:0 auto;width: 1000px;height: 50px;">{{productType}}</div> -->
+			<div id="productList" style="margin:20px auto;width: 1200px;clear:both">
 				
+				<div class="titleBox">
+					<div class="mTitle" >
+						产品中心
+					</div>
+					<div class="mSubTitle">
+						Product Center
+					</div>
+				</div>
+				<!-- <div style="margin: 0 auto;width: 1200px;margin-bottom: 60px;">
+					<div>
+						<input id="btnSearch" type="button" class="searchbox_btn" value="搜索"/>
+					</div>
+					<div style="float: right;">
+						<input id="txtSearch" type="text" value="请输入产品关键字" style="text-align: left;color: #666; padding-left: 5px;padding-right: 5px;background-color: #ffffff;width:300px;font-size: 12px;font-family:Microsoft YaHei;line-height: 36px;border:#156cfd 2px solid;"/>
+					</div>
+					
+				</div> -->
+				<div id="product" style="margin:0 auto;width: 1150px;">
+					<div class="fl" style="width: 280px;" v-for="item in productList">
+						<div class="product">
+							<a href="javascript:void(0)">
+								<img id="img1" :src="item.img" width="250px" height="250px" />
+							</a>
+						</div>
+						<div style="float:left;width:280px;height:40px;font-size: 15px;text-align: center;line-height: 40px;">{{item.name}}</div>
+					</div>
+				</div>
+				<div id="page" style="margin:0 auto;margin-bottom: 50px; width:1200px;text-align: center;" class="clear-float">
+					<el-pagination
+					  background
+					  layout="prev, pager, next"
+					  :current-page.sync="page" :total="total" :page-size="pageSize" @current-change="current_change">
+					</el-pagination>
+				</div>
 			</div>
-			<div id="product" style="margin:0 auto;width: 1200px;height:1050px">
-				<div class="product">
-					<a href="product_detail.html">
-						<img id="img1" src="img/pr001.jpeg" width="350px" height="250px" />
-					</a>
-				</div>
-				<div class="product">
-					<a href="product_detail.html">
-						<img src="img/pr001.jpeg" width="350px" height="250px" />
-					</a>
-				</div>
-				<div class="product">
-					<a href="product_detail.html">
-						<img src="img/pr001.jpeg" width="350px" height="250px" />
-					</a>
-				</div>
-				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
-				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
-				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
-				<div class="product">
-					<a href="product_detail.html">
-						<img src="img/pr001.jpeg" width="350px" height="250px" />
-					</a>
-				</div>
-				<div class="product">
-					<a href="product_detail.html">
-						<img src="img/pr001.jpeg" width="350px" height="250px" />
-					</a>
-				</div>
-				<div class="product">
-					<a href="product_detail.html">
-						<img src="img/pr001.jpeg" width="350px" height="250px" />
-					</a>
-				</div>
-				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
-				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
-				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
-				<div class="product">
-					<a href="">
-						<img src="img/pr001.jpeg" width="350px" height="250px" />
-					</a>
-				</div>
-				<div class="product">
-					<a href="product_detail.html">
-						<img src="img/pr001.jpeg" width="350px" height="250px" />
-					</a>
-				</div>
-				<div class="product">
-					<a href="product_detail.html">
-						<img src="img/pr001.jpeg" width="350px" height="250px" />
-					</a>
-				</div>
-				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
-				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
-				<div style="float:left;width:399px;height:50px;font-size: 20px;text-align: center;line-height: 50px;">xxxxxxxxxxxxxx</div>
-			</div>
-			<div id="page" style="margin:0 auto;margin-bottom: 50px; width:1200px;text-align: center;">
-				<el-pagination
-				  background
-				  layout="prev, pager, next"
-				  :current-page.sync="page" :total="total" :page-size="pageSize" @current-change="current_change">
-				</el-pagination>
-			</div>
-		</div>
-		<div style="width: 100%;background-color: #1A1A1A;">
+			<div style="width: 100%;background-color: #1A1A1A;" >
 			<div id="contactPic" style="margin: 0 auto; width: 1200px;font-family: 微软雅黑;height: 60px;">
 				<!-- <div class="pic"><img src="img/pic/phone.png" width="130px" height="130px"/></div>
 				<div class="pic"><img src="img/pic/address.png" width="130px" height="130px"/></div>
 				<div class="pic"><img src="img/pic/mail.png" width="130px" height="130px"/></div>
 				<div class="pic"><img src="img/pic/fax.png" width="130px" height="130px"/></div> -->
 				<div class="content">电话：王建丽 13738068166</div>
-				<div class="content">地址：杭州市余杭区瓶窑镇长命村富豪路7号1号楼3单元4-1室</div>
-				<div class="content">邮箱：13738068166@163.com</div>
-				<div class="content">传真：0571-87425558</div>
+				<div class="content">地址：浙江省湖州市德清县阜溪街道环城北路889号14幢</div>
+				<div class="content">邮箱：17858387085@163.com</div>
+				<div class="content">传真：0571-xxxxxxxx</div>
 			</div>
 			<div style="margin: 0 auto;width: 1200px;font-size: 15px;text-align: center;color: #FFFFFF;line-height: 50px;">
 				Copyright © 2019-2020,www.xxxxxx.com,All rights reserved  沪ICP备XXXXXX号
 			</div>
 		</div>
+		</div>
 		<script type="text/javascript">
 			var app = new Vue({
-				el: '#productList',
+				el: '#projectCenter',
 				data: {
-					todos: [
-					      { text: '汽车线束' },
-					      { text: '家电线束' },
-					      { text: '医疗线束' }
-					    ],
-						page:2,
-						total:20,
-						pageSize:10,
+					productType:"全部",
+					productList:[{
+						name:"新能源汽车锂电池组连接线",
+						img:"img/product/p1.png",
+						type:"新能源"
+					},
+					{
+						name:"BMS线束",
+						img:"img/product/p2.png",
+						type:"新能源"
+					},
+					{
+						name:"充电机线束",
+						img:"img/product/p3-1.png",
+						type:"新能源"
+					},
+					{
+						name:"充电机线束",
+						img:"img/product/p3-2.png",
+						type:"新能源"
+					},
+					{
+						name:"充电机线束",
+						img:"img/product/p3-3.png",
+						type:"新能源"
+					},
+					{
+						name:"充电机线束",
+						img:"img/product/p3-4.png",
+						type:"新能源"
+					},
+					{
+						name:"充电枪",
+						img:"img/product/p3-5.png",
+						type:"新能源"
+					},
+					{
+						name:"高精数据传输线束",
+						img:"img/product/p4.png",
+						type:"电子电器"
+					},
+					{
+						name:"自动售货机线束",
+						img:"img/product/p5.png",
+						type:"电子电器"
+					},
+					{
+						name:"LCD线束",
+						img:"img/product/p6.png",
+						type:"电子电器"
+					},
+					{
+						name:"家用类线束",
+						img:"img/product/p7.png",
+						type:"电子电器"
+					},
+					{
+						name:"伺服电机线束",
+						img:"img/product/p8.png",
+						type:"电气电工"
+					},
+					{
+						name:"空调电机线束",
+						img:"img/product/p9.png",
+						type:"电气电工"
+					},
+					{
+						name:"新能源制造设备驱动箱线束",
+						img:"img/product/p10.png",
+						type:"工业自动化"
+					},
+					{
+						name:"机器人重载连接器线束",
+						img:"img/product/p11.png",
+						type:"工业自动化"
+					},
+					{
+						name:"智能LED路灯模组防水连接线",
+						img:"img/product/p12.png",
+						type:"户外照明"
+					},
+					{
+						name:"智能LED路灯防水公母连接线",
+						img:"img/product/p13.png",
+						type:"户外照明"
+					},
+					{
+						name:"电子连接器",
+						img:"img/product/p14.png",
+						type:"电子连接器"
+					},
+					{
+						name:"PCBA用端子",
+						img:"img/product/p15.png",
+						type:"PCBA用端子"
+					},
+					{
+						name:"家用产品注塑件",
+						img:"img/product/p16.png",
+						type:"注塑件"
+					},
+					{
+						name:"锂电池端板",
+						img:"img/product/p17.png",
+						type:"锂电池端板"
+					},
+					],
+					allProductList:[{
+						name:"新能源汽车锂电池组连接线",
+						img:"img/product/p1.png",
+						type:"新能源"
+					},
+					{
+						name:"BMS线束",
+						img:"img/product/p2.png",
+						type:"新能源"
+					},
+					{
+						name:"充电机线束",
+						img:"img/product/p3-1.png",
+						type:"新能源"
+					},
+					{
+						name:"充电机线束",
+						img:"img/product/p3-2.png",
+						type:"新能源"
+					},
+					{
+						name:"充电机线束",
+						img:"img/product/p3-3.png",
+						type:"新能源"
+					},
+					{
+						name:"充电机线束",
+						img:"img/product/p3-4.png",
+						type:"新能源"
+					},
+					{
+						name:"充电枪",
+						img:"img/product/p3-5.png",
+						type:"新能源"
+					},
+					{
+						name:"高精数据传输线束",
+						img:"img/product/p4.png",
+						type:"电子电器"
+					},
+					{
+						name:"自动售货机线束",
+						img:"img/product/p5.png",
+						type:"电子电器"
+					},
+					{
+						name:"LCD线束",
+						img:"img/product/p6.png",
+						type:"电子电器"
+					},
+					{
+						name:"家用类线束",
+						img:"img/product/p7.png",
+						type:"电子电器"
+					},
+					{
+						name:"伺服电机线束",
+						img:"img/product/p8.png",
+						type:"电气电工"
+					},
+					{
+						name:"空调电机线束",
+						img:"img/product/p9.png",
+						type:"电气电工"
+					},
+					{
+						name:"新能源制造设备驱动箱线束",
+						img:"img/product/p10.png",
+						type:"工业自动化"
+					},
+					{
+						name:"机器人重载连接器线束",
+						img:"img/product/p11.png",
+						type:"工业自动化"
+					},
+					{
+						name:"智能LED路灯模组防水连接线",
+						img:"img/product/p12.png",
+						type:"户外照明"
+					},
+					{
+						name:"智能LED路灯防水公母连接线",
+						img:"img/product/p13.png",
+						type:"户外照明"
+					},
+					{
+						name:"电子连接器",
+						img:"img/product/p14.png",
+						type:"电子连接器"
+					},
+					{
+						name:"PCBA用端子",
+						img:"img/product/p15.png",
+						type:"PCBA用端子"
+					},
+					{
+						name:"家用产品注塑件",
+						img:"img/product/p16.png",
+						type:"注塑件"
+					},
+					{
+						name:"锂电池端板",
+						img:"img/product/p17.png",
+						type:"锂电池端板"
+					},
+					],
+					projectTypeList:[],
+					// todos: [
+					//       { text: '汽车线束' },
+					//       { text: '家电线束' },
+					//       { text: '医疗线束' }
+					//     ],
+						page:1,
+						total:0,
+						pageSize:8,
+				},
+				mounted() {
+					this.productTypeChange('全部');
+					this.current_change();
 				},
 				methods: {
 					current_change(){
-						axios.post("http://localhost:9066/iot/getToken", 
-								{
-						          username: "water",
-						          password: "123456"
-						        }).then((response) => {
-						          console.log("返回的值"+response.data)
-						        }).catch((response) => {
-						          console.log("错误"+response)
-						        });
+						let start = (this.page -1) * this.pageSize;
+						let end = start + this.pageSize;
+						if (end > this.projectTypeList.length) {
+							end = this.projectTypeList.length;
+						}
+						this.productList=[];
+						for (var i=start;i< end;i++) {
+							
+							this.productList.push(this.projectTypeList[i])
+						}
+						this.total = this.projectTypeList.length
+					},
+					productTypeChange(type){
+						
+						var arr = $("#productType li");
+						for (var i = 0;i< arr.length;i++) {
+							if (arr[i].innerText.indexOf(type) >= 0){
+								$(arr[i]).css("background-color", "#156cfd");
+								$(arr[i]).find("a").attr("class", "ahover");
+							} else {
+								$(arr[i]).css("background-color", "white");
+								$(arr[i]).find("a").attr("class", "hover");
+							}
+						}
+						
+						this.page=1
+						this.projectType=type
+						if (type == '全部') {
+							this.projectTypeList = this.allProductList;
+							this.total = this.projectTypeList.length
+						} else {
+							this.projectTypeList = this.allProductList.filter(function(value,index,arr) {
+								
+								if (value.type.indexOf(type) >= 0) {
+									return value;
+								}
+							});
+							
+						}
+						this.current_change();
+						
 					}
 				}
 			});
